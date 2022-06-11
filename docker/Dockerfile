@@ -3,6 +3,7 @@ FROM centos:centos7
 
 # メタデータ定義
 LABEL maintainer="Ryo-icy"
+LABEL org.opencontainers.image.source="https://github.com/ryo-icy/docker-minecraft"
 
 # メモリ初期設定
 ENV MAX_MEM=1G

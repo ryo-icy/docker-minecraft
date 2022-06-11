@@ -2,6 +2,18 @@
 # docker-minecraft
 マインクラフトサーバを稼働させるためDockerファイルです。
 
+## 目次
+- [前提](https://github.com/ryo-icy/docker-minecraft#%E5%89%8D%E6%8F%90)
+- [超簡単な手順](https://github.com/ryo-icy/docker-minecraft#%E8%B6%85%E7%B0%A1%E5%8D%98%E3%81%AA%E6%89%8B%E9%A0%86)
+- [注意点](https://github.com/ryo-icy/docker-minecraft#%E6%B3%A8%E6%84%8F%E7%82%B9)
+- [OPの登録方法](https://github.com/ryo-icy/docker-minecraft#op%E3%81%AE%E7%99%BB%E9%8C%B2%E6%96%B9%E6%B3%95)
+- [コマンド一覧](https://github.com/ryo-icy/docker-minecraft#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E4%B8%80%E8%A6%A7)
+- [rcon-cliの使い方](https://github.com/ryo-icy/docker-minecraft#rcon-cli%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9)
+- [Docker imageのビルド方法](https://github.com/ryo-icy/docker-minecraft#docker-image%E3%81%AE%E3%83%93%E3%83%AB%E3%83%89%E6%96%B9%E6%B3%95)
+- [docker-compose.ymlの仕様](https://github.com/ryo-icy/docker-minecraft#docker-composeyml%E3%81%AE%E4%BB%95%E6%A7%98)
+- [docker-compose.ymlのパラメータ](https://github.com/ryo-icy/docker-minecraft#docker-composeyml%E3%81%AE%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF)
+- [docker-compose.ymlの例](https://github.com/ryo-icy/docker-minecraft#docker-composeyml%E3%81%AE%E4%BE%8B)
+
 ## 前提
 - docker及びdocker-compose環境。
 - sudoが使える環境(※マウントされたデータはroot権限を持っていないと編集できません。回避策はあります。)
@@ -51,6 +63,7 @@ docker-compose up -d
 - sudo(root)権限を持っていないと`data`ディレクトリを編集できません。
   
   ※回避するにはビルドする前に`rootless`ディレクトリのファイルに置き換えましょう。
+  ※rootless前提で作成していないので、うまく動かない可能性があります。
 
 - マインクラフトサーバのデータは`data`ディレクトリに保存されます。
 - docker-compose.ymlと同じディレクトリで起動コマンドを実行する必要がある。

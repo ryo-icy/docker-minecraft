@@ -3,7 +3,7 @@ FROM centos:centos7
 
 # メタデータ定義
 LABEL maintainer="Ryo-icy"
-LABEL org.opencontainers.image.source=https://github.com/Ryo-Server-developer/docker-spigot-server
+LABEL org.opencontainers.image.source="https://github.com/ryo-icy/docker-minecraft"
 
 # 実行ユーザの設定
 ARG UID=1000
@@ -19,10 +19,12 @@ ENV JAR_FILE=spigot-1.17.jar
 # マインクラフトサーバポート
 EXPOSE 25565
 # Dynmapポート
-EXPOSE 8123
+# EXPOSE 8123
 
-# wgetをインストール
-RUN yum install -y wget python3
+# パッケージをインストール
+RUN yum install -y epel-release wget python3
+RUN yum install -y jq
+RUN pip3 install yq
 
 # 作業ディレクトリを/binに設定
 WORKDIR /bin
