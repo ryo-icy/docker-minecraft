@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+  <service name>:
+    image: "ghcr.io/ryo-icy/minecraft:latest"
+    tty: true
+    stdin_open: true
+    restart: always
+    container_name: <container name>
+    ports:
+      - <host port>:25565
+    environment:
+      MAX_MEM: <max memory>
+      MIN_MEM: <min memory>
+      JAR_FILE: <jar file>
+    volumes:
+      - ./data:/minecraft
+    networks:
+      - minecraft-network
+networks:
+  minecraft-network:
+    external: true

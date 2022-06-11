@@ -1,0 +1,28 @@
+#!/bin/python3
+
+import os
+import signal
+import subprocess
+import sys
+import time
+
+def stop_server(proc):
+    stopcommand = subprocess.Popen('rcon-cli stop', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    proc.wait()
+    print('Minecraft runner stop')
+
+def sig_handler(signum, frame) -> None:
+    sys.exit()
+
+def main():
+    signal.signal(signal.SIGTERM, sig_handler)
+    try:
+        proc = subprocess.Popen(sys.argv[1], shell=True)
+        while proc.poll() == None:
+            time.sleep(5)
+    finally:
+        stop_server(proc)
+
+if __name__ == '__main__':
+    print('Minecraft runner start')
+    sys.exit(main())
